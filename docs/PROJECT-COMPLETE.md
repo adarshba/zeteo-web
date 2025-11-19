@@ -133,7 +133,7 @@ npm install @juspay/neurolink
 ## 📊 Repository Structure
 
 ```
-logs-explorer/                           # Monorepo root
+zeteo/                                  # Monorepo root
 ├── backend/                        # Rust API (3.0KB src)
 │   ├── src/
 │   │   ├── main.rs                     # 7.3KB

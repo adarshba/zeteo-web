@@ -1,5 +1,7 @@
 # Zeteo
 
+> **ζητέω (zeteo)** - Greek verb meaning "to seek, search for, investigate"
+
 AI-powered log exploration and analysis platform with Neurolink integration. Supercharge your log searching with natural language queries and intelligent insights powered by 100+ AI models across 12+ providers.
 
 ## 🎯 What's New
@@ -17,7 +19,7 @@ This **monorepo** contains everything you need for AI-powered log analysis:
 - 🔍 Natural language log querying
 - 📦 One-click Vercel deployment
 
-**[→ Deployment Guide](VERCEL-DEPLOYMENT.md)**
+**[→ Deployment Guide](docs/VERCEL-DEPLOYMENT.md)**
 
 ### 2️⃣ MCP Server Integration
 **Location:** Documentation files in `docs/`
@@ -72,7 +74,7 @@ AI_MODEL=gpt-4o-mini
 ```bash
 # 1. Clone and install
 git clone https://github.com/adarshba/logs-explorer.git
-cd logs-explorer
+cd zeteo
 
 # 2. Install dependencies
 npm install
@@ -112,7 +114,7 @@ npm install @juspay/neurolink
 ## 📁 Repository Structure
 
 ```
-logs-explorer/                    # 🏠 Monorepo root
+zeteo/                            # 🏠 Monorepo root
 ├── api/                         # ⚡ Vercel serverless functions
 │   ├── query.ts                # Query parsing with Neurolink
 │   ├── analyze.ts              # Log analysis (streaming)

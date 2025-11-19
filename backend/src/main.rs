@@ -31,7 +31,7 @@ struct AppState {
 async fn main() -> anyhow::Result<()> {
     // Initialize tracing
     tracing_subscriber::fmt()
-        .with_env_filter("info,logs_explorer_backend=debug")
+        .with_env_filter("info,zeteo_backend=debug")
         .init();
 
     info!("🚀 Starting Logs Explorer Backend");

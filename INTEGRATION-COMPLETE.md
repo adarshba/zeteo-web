@@ -169,7 +169,7 @@ Your `gpt-4o-automatic` deployment works perfectly:
 ## 📁 Repository Structure
 
 ```
-logs-explorer/
+zeteo/
 ├── api/                          # 🔥 Serverless functions (Neurolink powered)
 │   ├── query.ts                 # Query parsing
 │   ├── analyze.ts               # Log analysis (STREAMING!)

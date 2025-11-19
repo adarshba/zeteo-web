@@ -52,7 +52,7 @@ Consider splitting into separate repos if:
 ### Current Structure
 
 ```
-logs-explorer/                           # 📦 Monorepo root
+zeteo/                                  # 📦 Monorepo root
 │
 ├── 🦀 backend/                     # Backend service
 │   ├── src/
@@ -212,16 +212,16 @@ services:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logs-explorer
+  name: zeteo
 spec:
   replicas: 2
   template:
     spec:
       containers:
       - name: backend
-        image: logs-explorer-backend:latest
+        image: zeteo-backend:latest
       - name: frontend
-        image: logs-explorer-frontend:latest
+        image: zeteo-frontend:latest
 ```
 
 ### 3. Separate Deployments
@@ -232,7 +232,7 @@ If you need independent deployments:
 # Deploy backend only
 cd backend
 cargo build --release
-./target/release/logs-explorer-backend
+./target/release/zeteo-backend
 
 # Deploy frontend only
 cd frontend
@@ -249,7 +249,7 @@ If you later decide to split:
 ```bash
 # Create new backend repo
 git clone logs-explorer logs-explorer-backend
-cd logs-explorer-backend
+cd zeteo-backend
 git filter-branch --subdirectory-filter backend -- --all
 # Now backend/ becomes root
 ```
@@ -259,7 +259,7 @@ git filter-branch --subdirectory-filter backend -- --all
 ```bash
 # Create new frontend repo
 git clone logs-explorer logs-explorer-frontend
-cd logs-explorer-frontend
+cd zeteo-frontend
 git filter-branch --subdirectory-filter frontend -- --all
 # Now frontend/ becomes root
 ```

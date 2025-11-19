@@ -109,11 +109,11 @@ cd backend
 cargo build --release
 
 # Run
-./target/release/logs-explorer-backend
+./target/release/zeteo-backend
 
 # Or with Docker
-docker build -t logs-explorer-backend .
-docker run -p 3001:3001 logs-explorer-backend
+docker build -t zeteo-backend .
+docker run -p 3001:3001 zeteo-backend
 ```
 
 ---
@@ -197,7 +197,7 @@ vercel
 ### Files Structure
 
 ```
-logs-explorer/
+zeteo/
 ├── frontend/                    # Svelte UI (used by both)
 │   ├── src/
 │   └── package.json

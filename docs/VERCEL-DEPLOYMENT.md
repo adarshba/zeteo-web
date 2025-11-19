@@ -38,7 +38,7 @@ The application has been refactored for Vercel deployment:
 npm i -g vercel
 
 # Navigate to project
-cd logs-explorer
+cd zeteo
 
 # Login to Vercel
 vercel login
