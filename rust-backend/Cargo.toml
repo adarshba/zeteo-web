@@ -1,8 +1,8 @@
 [package]
-name = "logs-explorer-backend"
+name = "zeteo-backend"
 version = "0.1.0"
 edition = "2021"
-authors = ["logs-explorer contributors"]
+authors = ["Zeteo contributors"]
 description = "High-performance Rust backend for AI-powered log exploration"
 
 [dependencies]

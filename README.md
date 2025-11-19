@@ -1,6 +1,8 @@
-# logs-explorer
+# Zeteo
 
 AI-powered log exploration and analysis platform with multiple integration options. Supercharge your log searching with natural language queries and intelligent insights.
+
+> **ζητέω (zeteo)** - Greek verb meaning "to seek, search for, investigate"
 
 ## 🎯 What's Included
 
@@ -70,7 +72,7 @@ npm install @juspay/neurolink
 ## 📁 Repository Structure
 
 ```
-logs-explorer/                    # 🏠 Monorepo root
+zeteo/                            # 🏠 Monorepo root
 ├── rust-backend/                 # 🦀 Rust API server
 │   ├── src/
 │   │   ├── main.rs              # API endpoints
