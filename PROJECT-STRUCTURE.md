@@ -54,7 +54,7 @@ Consider splitting into separate repos if:
 ```
 logs-explorer/                           # 📦 Monorepo root
 │
-├── 🦀 rust-backend/                     # Backend service
+├── 🦀 backend/                     # Backend service
 │   ├── src/
 │   │   ├── main.rs                     # API server
 │   │   ├── ai.rs                       # AI integration
@@ -114,7 +114,7 @@ git clone https://github.com/adarshba/logs-explorer.git
 cd logs-explorer
 
 # 2. Setup backend
-cd rust-backend
+cd backend
 cp .env.example .env
 # Edit .env with your API keys
 cargo run
@@ -126,7 +126,7 @@ pnpm run dev
 
 # 4. Commit changes to both
 cd ..
-git add rust-backend/ frontend/
+git add backend/ frontend/
 git commit -m "feat: add new feature"
 git push
 ```
@@ -162,7 +162,7 @@ jobs:
           toolchain: stable
       - name: Build backend
         run: |
-          cd rust-backend
+          cd backend
           cargo build --release
           cargo test
 
@@ -191,7 +191,7 @@ version: '3.8'
 
 services:
   backend:
-    build: ./rust-backend
+    build: ./backend
     ports:
       - "3001:3001"
     environment:
@@ -230,7 +230,7 @@ If you need independent deployments:
 
 ```bash
 # Deploy backend only
-cd rust-backend
+cd backend
 cargo build --release
 ./target/release/logs-explorer-backend
 
@@ -250,8 +250,8 @@ If you later decide to split:
 # Create new backend repo
 git clone logs-explorer logs-explorer-backend
 cd logs-explorer-backend
-git filter-branch --subdirectory-filter rust-backend -- --all
-# Now rust-backend/ becomes root
+git filter-branch --subdirectory-filter backend -- --all
+# Now backend/ becomes root
 ```
 
 ### Step 2: Extract Frontend

@@ -1,0 +1,22 @@
+{
+  "name": "logs-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
+    "dev:api": "cd api && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "npm run build:api && npm run build:frontend",
+    "build:api": "cd api && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "vercel-build": "npm run build:frontend"
+  },
+  "workspaces": [
+    "api",
+    "frontend"
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

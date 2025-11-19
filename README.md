@@ -1,20 +1,23 @@
 # logs-explorer
 
-AI-powered log exploration and analysis platform with multiple integration options. Supercharge your log searching with natural language queries and intelligent insights.
+AI-powered log exploration and analysis platform with Neurolink integration. Supercharge your log searching with natural language queries and intelligent insights powered by 100+ AI models across 12+ providers.
 
-## 🎯 What's Included
+## 🎯 What's New
+
+**✨ Neurolink Integration**: Now powered by Juspay Neurolink SDK for multi-provider AI operations!
 
 This **monorepo** contains everything you need for AI-powered log analysis:
 
-### 1️⃣ AI Bot with Rust Backend + Svelte Frontend
-**Location:** `rust-backend/` and `frontend/`
-- 🚀 High-performance Rust API server
+### 1️⃣ Full-Stack Web Application (Vercel-Ready)
+**Location:** `frontend/` and `api/`
+- 🚀 Vercel serverless functions with Neurolink AI
 - 💬 Beautiful Svelte web interface
-- 🤖 Direct AI integration with OpenAI
+- 🤖 Multi-provider AI support (OpenAI, Anthropic, Google AI, etc.)
 - ⚙️ Settings UI for Elasticsearch/OpenObserve configuration
 - 🔍 Natural language log querying
+- 📦 One-click Vercel deployment
 
-**[→ Setup Guide](AI-BOT-SETUP.md)**
+**[→ Deployment Guide](VERCEL-DEPLOYMENT.md)**
 
 ### 2️⃣ MCP Server Integration
 **Location:** Documentation files
@@ -26,34 +29,46 @@ This **monorepo** contains everything you need for AI-powered log analysis:
 **[→ Quick Start](QUICKSTART.md)** | **[→ Setup Guide](otel-mcp-server-setup.md)**
 
 ### 3️⃣ Neurolink SDK Integration
-**Location:** Documentation and examples
-- 🧠 Advanced AI SDK with multi-provider support
+**Location:** `api/` and documentation
+- 🧠 Advanced AI SDK with multi-provider support (INTEGRATED!)
 - 🏗️ Build custom log analysis applications
 - 💰 Cost optimization across 12+ AI providers
 - 📊 100+ models available
 
 **[→ Integration Guide](NEUROLINK-INTEGRATION.md)**
 
-## 🚀 Quick Start (Choose Your Path)
+### 4️⃣ Rust Backend (Legacy - For Local Use)
+**Location:** `backend/`
+- 🦀 High-performance Rust API server (OpenAI only)
+- 💻 For local development and self-hosting
+- ⚠️ Note: Not used in Vercel deployment
 
-### Path A: Web UI Bot (Recommended for Teams)
+**[→ Setup Guide](AI-BOT-SETUP.md)**
+
+## 🚀 Quick Start
+
+### Path A: Deploy to Vercel (Recommended - Production Ready!)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fadarshba%2Flogs-explorer)
+
 ```bash
-# 1. Setup backend
-cd rust-backend
-cp .env.example .env
-# Edit .env with your OPENAI_API_KEY
-cargo run --release
+# 1. One-click deploy or use Vercel CLI
+npm i -g vercel
+vercel login
+vercel
 
-# 2. Setup frontend (in new terminal)
-cd frontend
-pnpm install
-pnpm run dev
+# 2. Configure environment variables in Vercel Dashboard
+AI_PROVIDER=openai
+OPENAI_API_KEY=your_key_here
+AI_MODEL=gpt-4o-mini
 
-# 3. Open http://localhost:5173 and configure your log source
+# 3. Done! Your app is live at https://your-app.vercel.app
 ```
-**Best for:** Teams wanting a shared web interface
+**Best for:** Production deployments, teams, easy hosting
 
-### Path B: AI Assistant (Claude Desktop, Cline)
+**[→ Full Deployment Guide](VERCEL-DEPLOYMENT.md)**
+
+### Path B: Local Development
 ```bash
 # Add to your MCP client config (e.g., Claude Desktop)
 # See QUICKSTART.md for detailed instructions
@@ -71,7 +86,7 @@ npm install @juspay/neurolink
 
 ```
 logs-explorer/                    # 🏠 Monorepo root
-├── rust-backend/                 # 🦀 Rust API server
+├── backend/                 # 🦀 Rust API server
 │   ├── src/
 │   │   ├── main.rs              # API endpoints
 │   │   ├── ai.rs                # OpenAI integration
@@ -143,7 +158,7 @@ You can use this project in three ways:
 
 ### 1. Complete Web Application (Rust + Svelte)
 **What:** Full-stack web app with AI-powered log querying  
-**Location:** `rust-backend/` + `frontend/`  
+**Location:** `backend/` + `frontend/`  
 **Best for:** Teams, shared access, custom branding  
 **Setup time:** 10 minutes  
 **[→ Setup Guide](AI-BOT-SETUP.md)**
