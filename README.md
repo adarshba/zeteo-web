@@ -20,22 +20,22 @@ This **monorepo** contains everything you need for AI-powered log analysis:
 **[→ Deployment Guide](VERCEL-DEPLOYMENT.md)**
 
 ### 2️⃣ MCP Server Integration
-**Location:** Documentation files
+**Location:** Documentation files in `docs/`
 - 📚 Complete otel-mcp-server setup guides
 - 🔌 Works with Claude Desktop, Cline, etc.
 - 💡 No code required - just configuration
 - 🎨 Natural language queries in AI assistants
 
-**[→ Quick Start](QUICKSTART.md)** | **[→ Setup Guide](otel-mcp-server-setup.md)**
+**[→ Quick Start](docs/QUICKSTART.md)** | **[→ Setup Guide](docs/otel-mcp-server-setup.md)**
 
 ### 3️⃣ Neurolink SDK Integration
-**Location:** `api/` and documentation
+**Location:** `api/` and `docs/`
 - 🧠 Advanced AI SDK with multi-provider support (INTEGRATED!)
 - 🏗️ Build custom log analysis applications
 - 💰 Cost optimization across 12+ AI providers
 - 📊 100+ models available
 
-**[→ Integration Guide](NEUROLINK-INTEGRATION.md)**
+**[→ Integration Guide](docs/NEUROLINK-INTEGRATION.md)** | **[→ Usage Guide](docs/NEUROLINK-USAGE.md)**
 
 ### 4️⃣ Rust Backend (Legacy - For Local Use)
 **Location:** `backend/`
@@ -43,7 +43,7 @@ This **monorepo** contains everything you need for AI-powered log analysis:
 - 💻 For local development and self-hosting
 - ⚠️ Note: Not used in Vercel deployment
 
-**[→ Setup Guide](AI-BOT-SETUP.md)**
+**[→ Setup Guide](docs/AI-BOT-SETUP.md)** | **[→ Rust Explained](docs/RUST-BACKEND-EXPLAINED.md)**
 
 ## 🚀 Quick Start
 
@@ -66,37 +66,61 @@ AI_MODEL=gpt-4o-mini
 ```
 **Best for:** Production deployments, teams, easy hosting
 
-**[→ Full Deployment Guide](VERCEL-DEPLOYMENT.md)**
+**[→ Deployment Guide](docs/VERCEL-DEPLOYMENT.md)**
 
 ### Path B: Local Development
 ```bash
+# 1. Clone and install
+git clone https://github.com/adarshba/logs-explorer.git
+cd logs-explorer
+
+# 2. Install dependencies
+npm install
+
+# 3. Configure environment
+cp .env.example .env
+# Edit .env with your AI provider settings
+
+# 4. Run development server
+npm run dev
+
+# Frontend: http://localhost:5173
+# API: Runs as serverless functions
+```
+**Best for:** Local development and testing
+
+**[→ Local Setup Guide](docs/AI-BOT-SETUP.md)**
+
+### Path C: AI Assistant (Claude Desktop, Cline)
+```bash
 # Add to your MCP client config (e.g., Claude Desktop)
-# See QUICKSTART.md for detailed instructions
+# See docs/QUICKSTART.md for detailed instructions
 ```
 **Best for:** Individual developers, ad-hoc debugging
 
-### Path C: Build Custom Apps with Neurolink
+**[→ Quick Start](docs/QUICKSTART.md)** | **[→ Setup Guide](docs/otel-mcp-server-setup.md)**
+
+### Path D: Build Custom Apps with Neurolink
 ```bash
 npm install @juspay/neurolink
-# See NEUROLINK-INTEGRATION.md for examples
+# See docs/NEUROLINK-INTEGRATION.md for examples
 ```
 **Best for:** Custom integrations, automation, SaaS products
+
+**[→ Integration Guide](docs/NEUROLINK-INTEGRATION.md)** | **[→ Usage Examples](docs/NEUROLINK-USAGE.md)**
 
 ## 📁 Repository Structure
 
 ```
 logs-explorer/                    # 🏠 Monorepo root
-├── backend/                 # 🦀 Rust API server
-│   ├── src/
-│   │   ├── main.rs              # API endpoints
-│   │   ├── ai.rs                # OpenAI integration
-│   │   ├── elasticsearch.rs     # Elasticsearch client
-│   │   ├── openobserve.rs       # OpenObserve client
-│   │   └── models.rs            # Data models
-│   ├── Cargo.toml               # Rust dependencies
-│   └── .env.example             # Environment template
+├── api/                         # ⚡ Vercel serverless functions
+│   ├── query.ts                # Query parsing with Neurolink
+│   ├── analyze.ts              # Log analysis (streaming)
+│   ├── debug.ts                # AI-powered debugging
+│   ├── health.ts               # Health check
+│   └── package.json            # API dependencies
 │
-├── frontend/                     # 🎨 Svelte web UI
+├── frontend/                    # 🎨 Svelte web UI
 │   ├── src/
 │   │   ├── routes/+page.svelte  # Main page
 │   │   └── lib/                 # Components
@@ -106,19 +130,32 @@ logs-explorer/                    # 🏠 Monorepo root
 │   ├── package.json             # Node dependencies
 │   └── vite.config.ts           # Vite config
 │
-├── docs/                         # 📚 Documentation
-│   └── (coming soon)
+├── backend/                     # 🦀 Rust API server (optional)
+│   ├── src/
+│   │   ├── main.rs              # API endpoints
+│   │   ├── ai.rs                # OpenAI integration
+│   │   ├── elasticsearch.rs     # Elasticsearch client
+│   │   └── openobserve.rs       # OpenObserve client
+│   ├── Cargo.toml               # Rust dependencies
+│   └── .env.example             # Environment template
 │
-├── examples/                     # 💡 Example code (coming soon)
-│   └── (custom integrations)
+├── docs/                        # 📚 Documentation
+│   ├── VERCEL-DEPLOYMENT.md         # Vercel deployment guide
+│   ├── NEUROLINK-USAGE.md           # How we use Neurolink
+│   ├── NEUROLINK-INTEGRATION.md     # Neurolink integration guide
+│   ├── STREAMING.md                 # Streaming implementation
+│   ├── RUST-BACKEND-EXPLAINED.md    # Rust vs TypeScript
+│   ├── AI-BOT-SETUP.md              # Bot setup guide
+│   ├── QUICKSTART.md                # 5-minute quick start
+│   ├── otel-mcp-server-setup.md     # MCP server guide
+│   ├── config-examples.md           # Configuration examples
+│   ├── query-examples.md            # Query examples
+│   ├── COMPARISON.md                # Tool comparison
+│   └── PROJECT-STRUCTURE.md         # Project structure
 │
-├── AI-BOT-SETUP.md              # 🤖 Bot setup guide
-├── QUICKSTART.md                # ⚡ 5-minute quick start
-├── otel-mcp-server-setup.md     # 🔧 MCP server guide
-├── NEUROLINK-INTEGRATION.md     # 🧠 Neurolink guide
-├── config-examples.md           # ⚙️ Configuration examples
-├── query-examples.md            # 🔍 Query examples
-├── COMPARISON.md                # 📊 Tool comparison
+├── .env.example                 # Environment variables template
+├── vercel.json                  # Vercel configuration
+├── package.json                 # Root package config
 └── README.md                    # 📖 This file
 ```
 
@@ -156,32 +193,36 @@ This repository provides comprehensive guides and configurations for integrating
 
 You can use this project in three ways:
 
-### 1. Complete Web Application (Rust + Svelte)
+### 1. Complete Web Application (Vercel Deployment)
 **What:** Full-stack web app with AI-powered log querying  
-**Location:** `backend/` + `frontend/`  
-**Best for:** Teams, shared access, custom branding  
-**Setup time:** 10 minutes  
-**[→ Setup Guide](AI-BOT-SETUP.md)**
+**Location:** `api/` + `frontend/`  
+**Best for:** Production deployments, teams, easy hosting  
+**Setup time:** 5 minutes  
+**[→ Setup Guide](docs/VERCEL-DEPLOYMENT.md)**
 
 ### 2. MCP Integration (AI Assistants)
 **What:** Connect Claude Desktop or Cline to your logs  
 **Location:** Configuration only (otel-mcp-server)  
 **Best for:** Individual developers, quick debugging  
 **Setup time:** 5 minutes  
-**[→ Quick Start](QUICKSTART.md)**
+**[→ Quick Start](docs/QUICKSTART.md)**
 
 ### 3. SDK Integration (Build Your Own)
 **What:** Use Neurolink SDK to build custom apps  
-**Location:** Your custom code + docs here  
+**Location:** Your custom code + docs  
 **Best for:** Custom tools, automation, SaaS  
 **Setup time:** Varies  
-**[→ Integration Guide](NEUROLINK-INTEGRATION.md)**
+**[→ Integration Guide](docs/NEUROLINK-INTEGRATION.md)**
 
-## Documentation
+## 📚 Documentation
 
-- **[Setup Guide](otel-mcp-server-setup.md)** - Complete installation and configuration instructions
-- **[Configuration Examples](config-examples.md)** - Sample configurations for various scenarios
-- **[Query Examples](query-examples.md)** - Learn how to query logs using natural language
+- **[Vercel Deployment Guide](docs/VERCEL-DEPLOYMENT.md)** - Deploy to Vercel in one click
+- **[Neurolink Usage](docs/NEUROLINK-USAGE.md)** - How we use Neurolink for AI
+- **[Streaming Implementation](docs/STREAMING.md)** - Real-time streaming responses
+- **[Rust Backend Explained](docs/RUST-BACKEND-EXPLAINED.md)** - Rust vs TypeScript architecture
+- **[Setup Guide](docs/otel-mcp-server-setup.md)** - Complete installation and configuration
+- **[Configuration Examples](docs/config-examples.md)** - Sample configurations
+- **[Query Examples](docs/query-examples.md)** - Natural language query examples
 
 ## Example Usage
 
