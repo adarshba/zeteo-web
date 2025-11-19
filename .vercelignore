@@ -1,0 +1,35 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Rust backend (not used in Vercel deployment)
+rust-backend
+
+# Development files
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist
+build
+.svelte-kit
+
+# Editor files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage
+.nyc_output
+
+# Logs
+logs
+*.log

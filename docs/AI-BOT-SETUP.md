@@ -50,10 +50,10 @@ Complete implementation of an AI-powered log analysis bot with Rust backend and 
 
 ### Step 1: Configure Environment
 
-Create `.env` file in `rust-backend/`:
+Create `.env` file in `backend/`:
 
 ```bash
-cd rust-backend
+cd backend
 cat > .env << 'EOF'
 # OpenAI Configuration (Required)
 OPENAI_API_KEY=sk-your-key-here
@@ -75,7 +75,7 @@ EOF
 ### Step 2: Start Backend
 
 ```bash
-# In rust-backend/ directory
+# In backend/ directory
 cargo run --release
 ```
 
@@ -195,7 +195,7 @@ curl -X POST http://localhost:3001/api/debug \
 ### Backend Development
 
 ```bash
-cd rust-backend
+cd backend
 
 # Run with hot reload (requires cargo-watch)
 cargo install cargo-watch
@@ -231,7 +231,7 @@ pnpm run preview
 ### Backend (Rust)
 
 ```bash
-cd rust-backend
+cd backend
 
 # Build optimized binary
 cargo build --release
@@ -284,7 +284,7 @@ version: '3.8'
 
 services:
   backend:
-    build: ./rust-backend
+    build: ./backend
     ports:
       - "3001:3001"
     environment:

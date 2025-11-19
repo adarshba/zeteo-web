@@ -111,7 +111,7 @@
 
 	<footer>
 		<p>
-			Powered by Rust + AI | 
+			Powered by Neurolink AI | 
 			<a href="https://github.com/adarshba/logs-explorer" target="_blank">GitHub</a>
 		</p>
 	</footer>

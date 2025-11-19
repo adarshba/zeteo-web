@@ -9,7 +9,7 @@ A complete, production-ready AI-powered log exploration platform with multiple i
 ### 1. AI Bot with Web Interface
 **Technology Stack:** Rust + Svelte + OpenAI
 
-**Backend (`rust-backend/`):**
+**Backend (`backend/`):**
 - ⚡ High-performance Axum API server
 - 🤖 OpenAI GPT-4o-mini integration
 - 🔌 Elasticsearch client with full query support
@@ -56,7 +56,7 @@ A complete, production-ready AI-powered log exploration platform with multiple i
 
 ```bash
 # Terminal 1: Backend
-cd rust-backend
+cd backend
 cp .env.example .env
 # Add OPENAI_API_KEY to .env
 cargo run --release
@@ -134,7 +134,7 @@ npm install @juspay/neurolink
 
 ```
 logs-explorer/                           # Monorepo root
-├── rust-backend/                        # Rust API (3.0KB src)
+├── backend/                        # Rust API (3.0KB src)
 │   ├── src/
 │   │   ├── main.rs                     # 7.3KB
 │   │   ├── ai.rs                       # 11.0KB
@@ -267,7 +267,7 @@ curl -X POST http://localhost:3001/api/debug \
 version: '3.8'
 services:
   backend:
-    build: ./rust-backend
+    build: ./backend
     ports: ["3001:3001"]
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
