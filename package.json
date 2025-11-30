@@ -1,22 +1,21 @@
 {
   "name": "zeteo",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
-    "dev:api": "cd api && npm run dev",
-    "dev:frontend": "cd frontend && npm run dev",
-    "build": "npm run build:api && npm run build:frontend",
-    "build:api": "cd api && npm run build",
-    "build:frontend": "cd frontend && npm run build",
-    "vercel-build": "npm run build:frontend"
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
-  "workspaces": [
-    "api",
-    "frontend"
-  ],
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/kit": "^2.9.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "svelte": "^5.14.1",
+    "svelte-check": "^4.1.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.2"
   }
 }
