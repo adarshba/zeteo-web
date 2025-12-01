@@ -150,14 +150,15 @@
 					<div class="step-content">
 						<h3>Install with Cargo</h3>
 						<div class="code-block">
-							<code>cargo install --git https://github.com/adarshba/zeteo-cli</code>
-							<button class="copy-btn" aria-label="Copy install command" onclick={() => copyToClipboard('cargo install --git https://github.com/adarshba/zeteo-cli', 'Copied install command')}>
+							<code>cargo install zeteo</code>
+							<button class="copy-btn" aria-label="Copy install command" onclick={() => copyToClipboard('cargo install zeteo', 'Copied install command')}>
 								<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
 									<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
 									<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
 								</svg>
 							</button>
 						</div>
+						<p class="step-hint">Or download from <a href="https://github.com/adarshba/zeteo-cli/releases/latest" target="_blank" rel="noopener">GitHub Releases</a></p>
 					</div>
 				</div>
 				<div class="install-step">
@@ -173,6 +174,7 @@
 								</svg>
 							</button>
 						</div>
+						<p class="step-hint">Also supports Google AI, Azure OpenAI, and Vertex AI</p>
 					</div>
 				</div>
 				<div class="install-step">
@@ -493,6 +495,20 @@
 		font-size: 17px;
 		font-weight: 600;
 		margin-bottom: 12px;
+	}
+
+	.step-hint {
+		font-size: 13px;
+		color: var(--fg-secondary);
+		margin-top: 8px;
+	}
+
+	.step-hint a {
+		color: var(--accent);
+	}
+
+	.step-hint a:hover {
+		text-decoration: underline;
 	}
 
 	.code-block {
