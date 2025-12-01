@@ -33,10 +33,10 @@ The most critical issue appears to be the **database connection failure** in use
 			.map(line => {
 				// Code blocks (inline)
 				line = line.replace(/`([^`]+)`/g, '<code>$1</code>');
-				// Bold
+				// Bold (must be processed before italic)
 				line = line.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-				// Italic
-				line = line.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+				// Italic (only single asterisks not adjacent to other asterisks)
+				line = line.replace(/(?<!\*)\*(?!\*)([^*]+)(?<!\*)\*(?!\*)/g, '<em>$1</em>');
 				// List items
 				if (line.match(/^\d+\.\s/)) {
 					line = '<div class="list-item">' + line + '</div>';
