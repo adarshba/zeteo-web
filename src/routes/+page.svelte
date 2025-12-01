@@ -485,6 +485,8 @@
 
 	.step-content {
 		flex: 1;
+		min-width: 0;
+		overflow: hidden;
 	}
 
 	.step-content h3 {
@@ -508,6 +510,8 @@
 		font-family: var(--font-mono);
 		font-size: 14px;
 		color: var(--fg);
+		white-space: nowrap;
+		min-width: 0;
 	}
 
 	.copy-btn {
