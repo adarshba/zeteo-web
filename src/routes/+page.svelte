@@ -502,7 +502,8 @@
 		border: 1px solid var(--border);
 		border-radius: var(--radius);
 		padding: 12px 16px;
-		overflow-x: auto;
+		gap: 12px;
+		overflow: hidden;
 	}
 
 	.code-block code {
@@ -511,7 +512,18 @@
 		font-size: 14px;
 		color: var(--fg);
 		white-space: nowrap;
-		min-width: 0;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: thin;
+	}
+
+	.code-block code::-webkit-scrollbar {
+		height: 4px;
+	}
+
+	.code-block code::-webkit-scrollbar-thumb {
+		background: var(--border);
+		border-radius: 2px;
 	}
 
 	.copy-btn {
